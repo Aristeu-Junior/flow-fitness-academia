@@ -17,7 +17,7 @@ export const PricingSection: React.FC = () => {
 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="seg-num text-xs font-bold tracking-[0.18em] text-flow-primary uppercase">Planos & Valores</span>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2" style={{ textWrap: 'balance' }}>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2" style={{ textWrap: 'balance' }}>
             Escolha o plano ideal para a sua rotina.
           </h2>
           <p className="text-flow-muted mt-3 text-sm sm:text-base">

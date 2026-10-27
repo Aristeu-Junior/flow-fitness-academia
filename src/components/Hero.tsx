@@ -4,23 +4,6 @@ import { ArrowRight, MapPin } from 'lucide-react';
 import { GYM_INFO, getLiveGymStatus } from '../data/fitnessData';
 import { useCountUp } from '../hooks/useCountUp';
 
-const DAY_START = 6;
-const DAY_END = 22;
-const SEGMENTS = 8;
-
-/** Real peak window for Tuesday, as reported on the gym's own Google Business listing. */
-const PEAK_WINDOW: [number, number] = [18, 20];
-
-function buildTimelineSegments(): { lit: boolean }[] {
-  const span = (DAY_END - DAY_START) / SEGMENTS;
-  return Array.from({ length: SEGMENTS }, (_, i) => {
-    const segStart = DAY_START + i * span;
-    const segEnd = segStart + span;
-    const overlaps = segStart < PEAK_WINDOW[1] && segEnd > PEAK_WINDOW[0];
-    return { lit: overlaps };
-  });
-}
-
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
   show: (i: number) => ({
@@ -34,7 +17,6 @@ export const Hero: React.FC = () => {
   const status = getLiveGymStatus();
   const ratingRef = useCountUp<HTMLSpanElement>({ end: 4.8, decimals: 1, duration: 1.2 });
   const reviewsRef = useCountUp<HTMLSpanElement>({ end: 170, decimals: 0, duration: 1.4 });
-  const segments = buildTimelineSegments();
 
   return (
     <section
@@ -72,7 +54,7 @@ export const Hero: React.FC = () => {
             <motion.h1
               custom={1}
               variants={fadeUp}
-              className="font-display text-[2.6rem] sm:text-6xl lg:text-[4.2rem] font-extrabold text-white tracking-tight leading-[1.04]"
+              className="font-display text-[2.6rem] sm:text-6xl lg:text-[4.2rem] font-bold text-white tracking-tight leading-[1.04]"
               style={{ textWrap: 'balance' }}
             >
               Treino sério,<br />
@@ -150,28 +132,12 @@ export const Hero: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-1">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] text-flow-muted uppercase tracking-[0.14em] seg-num">Pico de Movimento · Terça</span>
-                  <span className="text-[10px] text-flow-primary uppercase tracking-[0.1em] seg-num">18h–20h</span>
-                </div>
-                <div className="flex items-center gap-1.5 h-8">
-                  {segments.map((seg, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ scaleY: 0.3, opacity: 0.5 }}
-                      animate={{ scaleY: 1, opacity: 1 }}
-                      transition={{ duration: 0.4, delay: 0.5 + i * 0.04 }}
-                      className={`flex-1 h-full rounded-[2px] origin-bottom ${seg.lit ? 'bg-flow-primary' : 'bg-flow-border'}`}
-                    />
-                  ))}
-                </div>
-                <div className="flex justify-between mt-1.5 text-[9px] seg-num text-flow-subtle">
-                  <span>06h</span><span>14h</span><span>22h</span>
-                </div>
+              <div className="flex items-center justify-between pt-1 text-[10px] uppercase tracking-[0.14em] seg-num">
+                <span className="text-flow-muted">Pico de Movimento · Terça</span>
+                <span className="text-flow-primary">18h–20h</span>
               </div>
 
-              <div className="flex items-center justify-between mt-5 pt-4 border-t border-flow-border/60 text-[10px] text-flow-muted uppercase tracking-[0.1em] seg-num">
+              <div className="flex items-center justify-between mt-4 pt-4 border-t border-flow-border/60 text-[10px] text-flow-muted uppercase tracking-[0.1em] seg-num">
                 <span>{GYM_INFO.address.street.toUpperCase()}</span>
                 <span className="text-flow-primary">● LGBTQ+ FRIENDLY</span>
               </div>

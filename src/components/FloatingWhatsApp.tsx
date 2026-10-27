@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 import { GYM_INFO } from '../data/fitnessData';
 
 export const FloatingWhatsApp: React.FC = () => {
-  const [showTooltip, setShowTooltip] = useState(true);
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  useEffect(() => {
+    const openTimer = setTimeout(() => setShowTooltip(true), 2500);
+    return () => clearTimeout(openTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!showTooltip) return;
+    const closeTimer = setTimeout(() => setShowTooltip(false), 6000);
+    return () => clearTimeout(closeTimer);
+  }, [showTooltip]);
+
+  useEffect(() => {
+    if (!showTooltip) return;
+    const hideOnScroll = () => setShowTooltip(false);
+    window.addEventListener('scroll', hideOnScroll, { passive: true, once: true });
+    return () => window.removeEventListener('scroll', hideOnScroll);
+  }, [showTooltip]);
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">

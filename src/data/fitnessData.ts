@@ -1,3 +1,5 @@
+import { asset } from '../lib/assets';
+
 export interface Plan {
   id: string;
   name: string;
@@ -229,7 +231,7 @@ export const MODALITIES: Modality[] = [
       "Aumento da densidade óssea e postura corporal"
     ],
     icon: "Dumbbell",
-    image: "/images/gallery_1.jpg"
+    image: asset("images/gallery_1.jpg")
   },
   {
     id: "cardio",
@@ -242,7 +244,7 @@ export const MODALITIES: Modality[] = [
       "Acompanhamento de zonas de frequência cardíaca"
     ],
     icon: "HeartPulse",
-    image: "/images/gallery_real_2.jpg"
+    image: asset("images/gallery_real_2.jpg")
   },
   {
     id: "flow-together-mod",
@@ -255,7 +257,7 @@ export const MODALITIES: Modality[] = [
       "Relatório claro com metas para o seu treino"
     ],
     icon: "Activity",
-    image: "/images/gallery_1.jpg"
+    image: asset("images/gallery_1.jpg")
   },
   {
     id: "acompanhamento",
@@ -268,7 +270,7 @@ export const MODALITIES: Modality[] = [
       "Ambiente motivador sem intimidação"
     ],
     icon: "Users",
-    image: "/images/gallery_real_2.jpg"
+    image: asset("images/gallery_real_2.jpg")
   }
 ];
 
@@ -279,8 +281,8 @@ export const MODALITIES: Modality[] = [
  * daqui em 2026-10-27. Ver .impeccable/surfaces/src-app-tsx.md.
  */
 export const GALLERY_ITEMS: GymGalleryItem[] = [
-  { id: "1", title: "Área de Musculação e Pesos Livres", category: "Musculação", src: "/images/gallery_1.jpg" },
-  { id: "2", title: "Treino Funcional no Salão", category: "Treino", src: "/images/gallery_real_2.jpg" },
+  { id: "1", title: "Área de Musculação e Pesos Livres", category: "Musculação", src: asset("images/gallery_1.jpg") },
+  { id: "2", title: "Treino Funcional no Salão", category: "Treino", src: asset("images/gallery_real_2.jpg") },
 ];
 
 export const YOUTUBE_VIDEOS = [
