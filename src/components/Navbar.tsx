@@ -40,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-1.5">
+        <nav className="hidden lg:flex items-center gap-1.5">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
           </button>
         </nav>
 
-        <div className="hidden sm:flex items-center shrink-0">
+        <div className="hidden lg:flex items-center shrink-0">
           <a
             href={GYM_INFO.contacts.whatsappUrl}
             target="_blank"
@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
 
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg panel border border-flow-border text-flow-light"
+          className="lg:hidden p-2 rounded-lg panel border border-flow-border text-flow-light"
           aria-label="Abrir menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-flow-bg/97 backdrop-blur-2xl border-b border-flow-border px-4 pt-4 pb-6 mt-3 space-y-3">
+        <div className="lg:hidden bg-flow-bg/97 backdrop-blur-2xl border-b border-flow-border px-4 pt-4 pb-6 mt-3 space-y-3">
           <div className="grid grid-cols-2 gap-2 pt-1">
             {navLinks.map((link) => (
               <a
