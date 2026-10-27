@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'motion/react';
 import { Dumbbell, HeartPulse, Activity, Users, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { MODALITIES, GYM_INFO } from '../data/fitnessData';
+import { revealHeader } from '../lib/reveal';
 
 const iconMap: Record<string, React.ElementType> = { Dumbbell, HeartPulse, Activity, Users };
 
@@ -12,14 +13,14 @@ export const Modalities: React.FC = () => {
     <section id="modalidades" className="py-20 bg-flow-bg relative" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="max-w-2xl mb-12">
+        <motion.div {...revealHeader} className="max-w-2xl mb-12">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight" style={{ textWrap: 'balance' }}>
             Tudo o que seu corpo precisa para evoluir com consistência.
           </h2>
           <p className="text-flow-muted mt-3 text-sm sm:text-base leading-relaxed">
             Ambiente planejado para quem busca emagrecimento, hipertrofia, saúde ou longevidade, com orientação de profissionais e equipamentos de ponta.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {MODALITIES.map((modality, idx) => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, Phone, MessageSquare } from 'lucide-react';
 import { FAQS, GYM_INFO } from '../data/fitnessData';
+import { revealHeader, revealItem } from '../lib/reveal';
 
 export const FaqSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -11,7 +12,7 @@ export const FaqSection: React.FC = () => {
     <section id="faq" className="py-20 bg-flow-bg relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <motion.div {...revealHeader} className="text-center max-w-2xl mx-auto mb-12">
           <span className="seg-num text-xs font-bold tracking-[0.18em] text-flow-primary uppercase">Tire suas dúvidas</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2" style={{ textWrap: 'balance' }}>
             Perguntas Frequentes
@@ -19,14 +20,15 @@ export const FaqSection: React.FC = () => {
           <p className="text-flow-muted mt-3 text-sm sm:text-base">
             Tudo o que você precisa saber antes de começar seus treinos na Flow Fitness.
           </p>
-        </div>
+        </motion.div>
 
         <div className="space-y-3">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div
+              <motion.div
                 key={idx}
+                {...revealItem(idx, 0.05)}
                 className={`rounded-panel border transition-colors duration-200 overflow-hidden ${
                   isOpen ? 'panel border-flow-primary/40' : 'bg-flow-surface/60 border-flow-border hover:border-flow-borderHover'
                 }`}
@@ -54,12 +56,12 @@ export const FaqSection: React.FC = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
-        <div className="mt-10 p-6 rounded-panel panel border border-flow-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div {...revealItem(0, 0.25)} className="mt-10 p-6 rounded-panel panel border border-flow-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3.5 text-center sm:text-left">
             <div className="w-10 h-10 rounded-lg bg-flow-primary/15 text-flow-primary flex items-center justify-center shrink-0">
               <MessageSquare className="w-5 h-5" />
@@ -73,7 +75,7 @@ export const FaqSection: React.FC = () => {
             <Phone className="w-3.5 h-3.5 fill-current" />
             <span>Falar com Instrutor</span>
           </a>
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -1,13 +1,15 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { MapPin, Navigation, ExternalLink, Info } from 'lucide-react';
 import { GYM_INFO } from '../data/fitnessData';
+import { revealHeader, revealItem } from '../lib/reveal';
 
 export const ScheduleAndLocation: React.FC = () => {
   return (
     <section id="horarios" className="py-20 bg-flow-surface/40 relative border-t border-flow-border/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="max-w-2xl mb-12">
+        <motion.div {...revealHeader} className="max-w-2xl mb-12">
           <span className="seg-num text-xs font-bold tracking-[0.18em] text-flow-primary uppercase">Localização & Funcionamento</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2" style={{ textWrap: 'balance' }}>
             Fácil de chegar, amplo horário para treinar.
@@ -15,12 +17,12 @@ export const ScheduleAndLocation: React.FC = () => {
           <p className="text-flow-muted mt-3 text-sm sm:text-base">
             Localizada no coração da Vila Santo Antônio em Ferraz de Vasconcelos, aberta das 06h às 22h para acompanhar seu ritmo de vida.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
           <div className="lg:col-span-5 space-y-5">
-            <div className="rounded-panel panel border border-flow-border p-6">
+            <motion.div {...revealItem(0)} className="rounded-panel panel border border-flow-border p-6">
               <span className="font-bold text-white text-sm block pb-4 border-b border-flow-border/70">Horários de Funcionamento</span>
 
               <div className="pt-4 space-y-2.5">
@@ -39,9 +41,9 @@ export const ScheduleAndLocation: React.FC = () => {
                 <Info className="w-4 h-4 text-flow-primary shrink-0 mt-0.5" />
                 <span><strong>Dica:</strong> para menor fluxo de alunos, prefira horários entre 10h-16h ou após 20h30.</span>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="rounded-panel panel border border-flow-border p-6 space-y-4">
+            <motion.div {...revealItem(1)} className="rounded-panel panel border border-flow-border p-6 space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-lg bg-flow-primary/10 border border-flow-primary/30 flex items-center justify-center text-flow-primary shrink-0">
                   <MapPin className="w-5 h-5" />
@@ -62,10 +64,10 @@ export const ScheduleAndLocation: React.FC = () => {
                   <span>Abrir no Waze</span>
                 </a>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="lg:col-span-7">
+          <motion.div {...revealItem(2)} className="lg:col-span-7">
             <div className="rounded-panel overflow-hidden panel border border-flow-border p-2 h-full flex flex-col">
               <div className="relative w-full h-[380px] sm:h-[480px] rounded-2xl overflow-hidden">
                 <iframe
@@ -83,7 +85,7 @@ export const ScheduleAndLocation: React.FC = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Check, Phone } from 'lucide-react';
 import { STANDARD_PLANS, SPECIAL_SERVICES, GYM_INFO } from '../data/fitnessData';
+import { revealHeader, revealItem } from '../lib/reveal';
 
 export const PricingSection: React.FC = () => {
   return (
     <section id="planos" className="py-20 bg-flow-surface/40 relative border-t border-flow-border/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <motion.div {...revealHeader} className="text-center max-w-3xl mx-auto mb-12">
           <span className="seg-num text-xs font-bold tracking-[0.18em] text-flow-primary uppercase">Planos & Valores</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2" style={{ textWrap: 'balance' }}>
             Escolha o plano ideal para a sua rotina.
@@ -16,14 +17,15 @@ export const PricingSection: React.FC = () => {
           <p className="text-flow-muted mt-3 text-sm sm:text-base">
             Sem fidelidade oculta e com isenção de matrícula garantida a partir do plano trimestral.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
-          {STANDARD_PLANS.map((plan) => {
+          {STANDARD_PLANS.map((plan, idx) => {
             const isHighlight = plan.highlighted;
             return (
-              <div
+              <motion.div
                 key={plan.id}
+                {...revealItem(idx)}
                 className={`relative rounded-panel p-6 flex flex-col justify-between transition-colors duration-300 ${
                   isHighlight ? 'bg-flow-card border-2 border-flow-primary' : 'panel border border-flow-border hover:border-flow-borderHover'
                 }`}
@@ -80,19 +82,19 @@ export const PricingSection: React.FC = () => {
                   <Phone className="w-3.5 h-3.5 fill-current" />
                   <span>Escolher {plan.name}</span>
                 </a>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Special plans: always visible, no tab */}
         <div className="mt-16">
-          <div className="max-w-2xl mb-8">
+          <motion.div {...revealHeader} className="max-w-2xl mb-8">
             <span className="seg-num text-xs font-bold tracking-[0.18em] text-flow-primary uppercase">Condições Especiais</span>
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mt-2" style={{ textWrap: 'balance' }}>
               Avaliação física, plano família e aula avulsa.
             </h3>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {SPECIAL_SERVICES.filter((s) => s.id !== 'flow-family').map((service, idx) => (

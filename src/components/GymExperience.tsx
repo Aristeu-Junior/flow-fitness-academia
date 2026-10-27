@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Sparkles } from 'lucide-react';
 import { YOUTUBE_VIDEOS } from '../data/fitnessData';
+import { revealHeader } from '../lib/reveal';
 
 export const GymExperience: React.FC = () => {
   return (
     <section id="estrutura" className="py-20 bg-flow-bg relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="max-w-2xl mb-12">
+        <motion.div {...revealHeader} className="max-w-2xl mb-12">
           <span className="seg-num text-xs font-bold tracking-[0.18em] text-flow-primary uppercase">Experiência & Estrutura</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2" style={{ textWrap: 'balance' }}>
             Conheça nosso espaço por dentro.
@@ -16,7 +17,7 @@ export const GymExperience: React.FC = () => {
           <p className="text-flow-muted mt-3 text-sm sm:text-base">
             Ambiente planejado para proporcionar conforto, fluidez de treino e motivação diária.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {YOUTUBE_VIDEOS.map((video, idx) => (
