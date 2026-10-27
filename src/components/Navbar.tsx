@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
         <a href="#inicio" className="flex items-center gap-2.5 shrink-0">
           <img src={asset('images/logo.png')} alt="Flow Fitness Academia" className="w-8 h-8 sm:w-9 sm:h-9" />
           <span className="seg-num font-extrabold text-sm sm:text-base tracking-[0.12em] text-white">
-            FLOW <span className="text-flow-primary">//</span> FITNESS
+            FLOW <span className="text-flow-primary">FITNESS</span>
           </span>
         </a>
 

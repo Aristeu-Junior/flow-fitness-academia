@@ -25,13 +25,6 @@ export interface Modality {
   image: string;
 }
 
-export interface GymGalleryItem {
-  id: string;
-  title: string;
-  category: string;
-  src: string;
-}
-
 export const GYM_INFO = {
   name: "Flow Fitness Academia",
   slogan: "Deixe seu potencial Fluir",
@@ -272,17 +265,6 @@ export const MODALITIES: Modality[] = [
     icon: "Users",
     image: asset("images/gallery_real_2.jpg")
   }
-];
-
-/**
- * Apenas fotos reais do salão confirmadas (dumbbell rack + foto do perfil Google
- * Business da academia). O restante do pacote original (gallery_2 a gallery_6)
- * eram artes de divulgação/logos de terceiros, não fotos do salão — removidas
- * daqui em 2026-10-27. Ver .impeccable/surfaces/src-app-tsx.md.
- */
-export const GALLERY_ITEMS: GymGalleryItem[] = [
-  { id: "1", title: "Área de Musculação e Pesos Livres", category: "Musculação", src: asset("images/gallery_1.jpg") },
-  { id: "2", title: "Treino Funcional no Salão", category: "Treino", src: asset("images/gallery_real_2.jpg") },
 ];
 
 export const YOUTUBE_VIDEOS = [

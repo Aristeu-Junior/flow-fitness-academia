@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConductModal, onOpenCareer
             <a href="#inicio" className="inline-flex items-center gap-3">
               <img src={asset('images/logo.png')} alt="Flow Fitness Academia" className="w-10 h-10" />
               <span className="seg-num font-extrabold text-xl tracking-[0.1em] text-white">
-                FLOW <span className="text-flow-primary">//</span> FITNESS
+                FLOW <span className="text-flow-primary">FITNESS</span>
               </span>
             </a>
 
