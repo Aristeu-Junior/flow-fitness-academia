@@ -31,7 +31,11 @@ export const PricingSection: React.FC = () => {
                 }`}
               >
                 {plan.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-flow-primary text-flow-bg text-[10px] font-black uppercase tracking-wider whitespace-nowrap">
+                  <div
+                    className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-flow-bg text-[10px] font-black uppercase tracking-wider whitespace-nowrap ${
+                      plan.badge.includes('Custo') ? 'bg-flow-secondary' : plan.badge.includes('Valor') ? 'bg-flow-accent' : 'bg-flow-primary'
+                    }`}
+                  >
                     {plan.badge}
                   </div>
                 )}

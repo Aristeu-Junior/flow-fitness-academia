@@ -6,6 +6,14 @@ import { revealHeader } from '../lib/reveal';
 
 const iconMap: Record<string, React.ElementType> = { Dumbbell, HeartPulse, Activity, Users };
 
+/** Per-modality accent, so the grid isn't monochrome green — varies across the brand's full palette. */
+const ACCENTS = [
+  { text: 'text-flow-primary', bg: 'bg-flow-primary', border: 'border-flow-primary/40' },
+  { text: 'text-flow-secondary', bg: 'bg-flow-secondary', border: 'border-flow-secondary/40' },
+  { text: 'text-flow-accent', bg: 'bg-flow-accent', border: 'border-flow-accent/40' },
+  { text: 'text-flow-secondary', bg: 'bg-flow-secondary', border: 'border-flow-secondary/40' },
+];
+
 export const Modalities: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -26,6 +34,7 @@ export const Modalities: React.FC = () => {
           {MODALITIES.map((modality, idx) => {
             const Icon = iconMap[modality.icon] || Dumbbell;
             const isFeatured = idx === 2;
+            const accent = ACCENTS[idx] ?? ACCENTS[0];
 
             return (
               <motion.div
@@ -35,7 +44,7 @@ export const Modalities: React.FC = () => {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: idx * 0.06 }}
                 className={`group relative rounded-panel overflow-hidden border transition-colors duration-300 ${
-                  isFeatured ? 'bg-flow-card border-flow-primary/40' : 'panel border-flow-border hover:border-flow-borderHover'
+                  isFeatured ? `bg-flow-card ${accent.border}` : 'panel border-flow-border hover:border-flow-borderHover'
                 }`}
               >
                 <div className="relative h-44 sm:h-52 overflow-hidden">
@@ -47,17 +56,17 @@ export const Modalities: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-flow-surface via-flow-surface/40 to-transparent" />
 
-                  <div className="absolute top-0 left-0 px-3 py-2 bg-[#0A0D10]/90 border-r border-b border-flow-border seg-num text-[11px] font-bold text-flow-primary tracking-[0.1em]">
+                  <div className={`absolute top-0 left-0 px-3 py-2 bg-[#0A0D10]/90 border-r border-b border-flow-border seg-num text-[11px] font-bold tracking-[0.1em] ${accent.text}`}>
                     {String(idx + 1).padStart(2, '0')}
                   </div>
 
                   <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/75 border border-white/10 rounded-md text-[11px] font-semibold text-white">
-                    <Icon className="w-3 h-3 text-flow-primary" />
+                    <Icon className={`w-3 h-3 ${accent.text}`} />
                     <span className="seg-num tracking-wide">{modality.category}</span>
                   </div>
 
                   {isFeatured && (
-                    <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-flow-primary text-flow-bg text-[10px] font-extrabold tracking-wider uppercase">
+                    <div className={`absolute bottom-3 right-3 px-2.5 py-1 rounded-md ${accent.bg} text-flow-bg text-[10px] font-extrabold tracking-wider uppercase`}>
                       Destaque OMS
                     </div>
                   )}
@@ -73,7 +82,7 @@ export const Modalities: React.FC = () => {
                   <ul className="space-y-2 pt-3 border-t border-flow-border/60">
                     {modality.benefits.map((benefit, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2 text-sm text-flow-light/90">
-                        <CheckCircle2 className="w-4 h-4 text-flow-primary shrink-0 mt-0.5" />
+                        <CheckCircle2 className={`w-4 h-4 ${accent.text} shrink-0 mt-0.5`} />
                         <span>{benefit}</span>
                       </li>
                     ))}
@@ -83,7 +92,7 @@ export const Modalities: React.FC = () => {
                     href={`${GYM_INFO.contacts.whatsappUrl}?text=${encodeURIComponent(`Olá! Gostaria de saber mais sobre a modalidade: ${modality.title} na Flow Fitness.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-flow-primary hover:text-white transition-colors pt-1"
+                    className={`inline-flex items-center gap-1.5 text-xs font-bold ${accent.text} hover:text-white transition-colors pt-1`}
                   >
                     <span>Tirar dúvidas sobre este treino</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
