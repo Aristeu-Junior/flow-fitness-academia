@@ -1,10 +1,8 @@
 import React from 'react';
 import { MapPin, Navigation, ExternalLink, Info } from 'lucide-react';
-import { GYM_INFO, getLiveGymStatus } from '../data/fitnessData';
+import { GYM_INFO } from '../data/fitnessData';
 
 export const ScheduleAndLocation: React.FC = () => {
-  const status = getLiveGymStatus();
-
   return (
     <section id="horarios" className="py-20 bg-flow-surface/40 relative border-t border-flow-border/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,15 +21,7 @@ export const ScheduleAndLocation: React.FC = () => {
 
           <div className="lg:col-span-5 space-y-5">
             <div className="rounded-panel panel border border-flow-border p-6">
-              <div className="flex items-center justify-between pb-4 border-b border-flow-border/70">
-                <div className="flex items-center gap-2.5">
-                  <div className={`w-2.5 h-2.5 rounded-full ${status.isOpen ? 'bg-flow-primary' : 'bg-flow-subtle'}`} />
-                  <span className="font-bold text-white text-sm">Status em Tempo Real</span>
-                </div>
-                <span className={`px-3 py-1 rounded-full seg-num text-xs font-black uppercase border ${status.isOpen ? 'bg-flow-primary/15 text-flow-primary border-flow-primary/40' : 'bg-flow-surface text-flow-muted border-flow-border'}`}>
-                  {status.text}
-                </span>
-              </div>
+              <span className="font-bold text-white text-sm block pb-4 border-b border-flow-border/70">Horários de Funcionamento</span>
 
               <div className="pt-4 space-y-2.5">
                 {GYM_INFO.schedule.detailed.map((item, idx) => (

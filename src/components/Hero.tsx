@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, MapPin } from 'lucide-react';
-import { GYM_INFO, getLiveGymStatus } from '../data/fitnessData';
+import { GYM_INFO } from '../data/fitnessData';
 import { useCountUp } from '../hooks/useCountUp';
 
 const fadeUp = {
@@ -14,7 +14,6 @@ const fadeUp = {
 };
 
 export const Hero: React.FC = () => {
-  const status = getLiveGymStatus();
   const ratingRef = useCountUp<HTMLSpanElement>({ end: 4.8, decimals: 1, duration: 1.2 });
   const reviewsRef = useCountUp<HTMLSpanElement>({ end: 170, decimals: 0, duration: 1.4 });
 
@@ -35,24 +34,8 @@ export const Hero: React.FC = () => {
             animate="show"
             className="lg:col-span-7 flex flex-col items-start"
           >
-            <motion.div
-              custom={0}
-              variants={fadeUp}
-              className="inline-flex items-center gap-2.5 px-3.5 py-2 panel rounded-full border border-flow-border mb-7"
-            >
-              <span className="relative flex h-2 w-2">
-                {status.isOpen && (
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-flow-primary opacity-70" />
-                )}
-                <span className={`relative inline-flex rounded-full h-2 w-2 ${status.isOpen ? 'bg-flow-primary' : 'bg-flow-subtle'}`} />
-              </span>
-              <span className="seg-num text-[11px] font-bold text-flow-primary tracking-[0.18em] uppercase">
-                {status.text} · {status.subtext}
-              </span>
-            </motion.div>
-
             <motion.h1
-              custom={1}
+              custom={0}
               variants={fadeUp}
               className="font-display text-[2.6rem] sm:text-6xl lg:text-[4.2rem] font-bold text-white tracking-tight leading-[1.04]"
               style={{ textWrap: 'balance' }}
@@ -63,7 +46,7 @@ export const Hero: React.FC = () => {
             </motion.h1>
 
             <motion.p
-              custom={2}
+              custom={1}
               variants={fadeUp}
               className="text-base sm:text-lg text-flow-muted max-w-xl leading-relaxed mt-6"
             >
@@ -72,7 +55,7 @@ export const Hero: React.FC = () => {
             </motion.p>
 
             <motion.div
-              custom={3}
+              custom={2}
               variants={fadeUp}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mt-8"
             >
@@ -95,7 +78,7 @@ export const Hero: React.FC = () => {
             </motion.div>
 
             <motion.div
-              custom={4}
+              custom={3}
               variants={fadeUp}
               className="flex items-center gap-2 mt-7 text-xs text-flow-muted"
             >
@@ -112,11 +95,6 @@ export const Hero: React.FC = () => {
             className="lg:col-span-5 w-full"
           >
             <div className="panel border border-flow-border rounded-panel p-5 sm:p-6">
-              <div className="flex items-center justify-between pb-4 border-b border-flow-border/70 mb-4">
-                <span className="seg-num text-[11px] font-bold text-flow-muted tracking-[0.2em] uppercase">Flow // Placar</span>
-                <span className="seg-num text-[11px] font-bold text-flow-primary tracking-[0.15em]">AO VIVO</span>
-              </div>
-
               <div className="grid grid-cols-3 gap-3 mb-5">
                 <div className="text-center">
                   <span ref={ratingRef} className="block seg-num seg-lit text-3xl sm:text-4xl font-extrabold animate-seg-flicker">0.0</span>

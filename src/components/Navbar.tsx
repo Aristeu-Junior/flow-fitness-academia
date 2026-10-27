@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
-import { GYM_INFO, getLiveGymStatus } from '../data/fitnessData';
+import { GYM_INFO } from '../data/fitnessData';
 
 interface NavbarProps {
   onOpenConductModal: () => void;
@@ -10,16 +10,11 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareersModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [status, setStatus] = useState(getLiveGymStatus());
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
-    const interval = setInterval(() => setStatus(getLiveGymStatus()), 60000);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearInterval(interval);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
@@ -42,13 +37,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
             FLOW <span className="text-flow-primary">//</span> FITNESS
           </span>
         </a>
-
-        <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full panel border border-flow-border">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${status.isOpen ? 'bg-flow-primary' : 'bg-flow-subtle'}`} />
-          </span>
-          <span className="seg-num text-[11px] font-bold text-flow-muted tracking-[0.1em] uppercase">{status.text}</span>
-        </div>
 
         <nav className="hidden md:flex items-center gap-1.5">
           {navLinks.map((link) => (
@@ -91,11 +79,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
 
       {mobileMenuOpen && (
         <div className="md:hidden bg-flow-bg/97 backdrop-blur-2xl border-b border-flow-border px-4 pt-4 pb-6 mt-3 space-y-3">
-          <div className="flex items-center gap-2 px-3 py-2 rounded-lg panel border border-flow-border text-xs">
-            <span className={`inline-block w-2 h-2 rounded-full ${status.isOpen ? 'bg-flow-primary' : 'bg-flow-subtle'}`} />
-            <span className="seg-num text-flow-light font-semibold">{status.text}</span>
-          </div>
-
           <div className="grid grid-cols-2 gap-2 pt-1">
             {navLinks.map((link) => (
               <a
