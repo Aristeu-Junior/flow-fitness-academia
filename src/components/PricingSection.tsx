@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { Check, Phone, ShieldCheck, Users } from 'lucide-react';
+import { Check, Phone } from 'lucide-react';
 import { STANDARD_PLANS, SPECIAL_SERVICES, GYM_INFO } from '../data/fitnessData';
 
 export const PricingSection: React.FC = () => {
-  const [dependentsCount, setDependentsCount] = useState<number>(2);
-
-  const flowFamilyPricePerDependent = 69.9;
-  const flowFamilyTotal = (dependentsCount * flowFamilyPricePerDependent).toFixed(2).replace('.', ',');
-  const ladderLit = Math.round(((dependentsCount - 2) / (6 - 2)) * 10) + 2;
-
   return (
     <section id="planos" className="py-20 bg-flow-surface/40 relative border-t border-flow-border/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,84 +143,6 @@ export const PricingSection: React.FC = () => {
               </motion.div>
             ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.4, delay: 0.18 }}
-            className="rounded-panel panel border border-flow-primary/30 p-6 sm:p-8 mt-5"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-              <div className="lg:col-span-7 space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-flow-primary/15 border border-flow-primary/30 text-xs font-bold text-flow-primary">
-                  <Users className="w-3.5 h-3.5" />
-                  <span className="seg-num">Simulador plano familiar</span>
-                </div>
-                <h4 className="font-display text-2xl font-bold text-white">Flow Family: saúde e economia para a família</h4>
-                <p className="text-sm text-flow-muted leading-relaxed">
-                  1 titular + a partir de 2 dependentes pagam apenas <strong className="text-white">R$ 69,90/mês</strong> por dependente.
-                </p>
-              </div>
-
-              <div className="lg:col-span-5 p-5 rounded-panel bg-flow-bg/90 border border-flow-border space-y-4">
-                <div>
-                  <div className="flex justify-between text-xs font-bold text-white mb-2">
-                    <span>Número de Dependentes:</span>
-                    <span className="seg-num seg-lit text-sm">{dependentsCount} pessoas</span>
-                  </div>
-
-                  <div className="flex items-center gap-[3px] h-4 mb-2.5">
-                    {Array.from({ length: 12 }, (_, i) => (
-                      <div key={i} className={`flex-1 h-full rounded-[1px] transition-colors ${i < ladderLit ? 'bg-flow-primary' : 'bg-flow-border'}`} />
-                    ))}
-                  </div>
-
-                  <input
-                    type="range"
-                    id="flow-family-dependents"
-                    min={2}
-                    max={6}
-                    value={dependentsCount}
-                    onChange={(e) => setDependentsCount(Number(e.target.value))}
-                    className="w-full h-1.5 bg-flow-surface rounded-lg appearance-none cursor-pointer accent-flow-primary"
-                  />
-                  <div className="flex justify-between text-[10px] text-flow-muted seg-num mt-1">
-                    <span>2 (mín.)</span><span>3</span><span>4</span><span>5</span><span>6+</span>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-flow-border/70 flex items-center justify-between">
-                  <div>
-                    <span className="text-[11px] text-flow-muted block">Investimento mensal total:</span>
-                    <span className="seg-num seg-lit text-2xl font-extrabold">
-                      R$ {flowFamilyTotal} <span className="text-xs font-normal text-flow-muted">/mês</span>
-                    </span>
-                  </div>
-                  <a
-                    href={`${GYM_INFO.contacts.whatsappUrl}?text=${encodeURIComponent(`Olá! Gostaria de cadastrar o Plano Flow Family para 1 Titular + ${dependentsCount} dependentes (R$ 69,90/cada).`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-[8px] bg-flow-primary text-flow-bg font-bold text-xs uppercase tracking-wider active:scale-95 shrink-0"
-                  >
-                    Cadastrar Família
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="mt-10 p-4 rounded-panel panel border border-flow-border/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-3">
-            <ShieldCheck className="w-5 h-5 text-flow-primary shrink-0" />
-            <span className="text-flow-light">
-              <strong className="text-white">Transparência total:</strong> sem taxas escondidas de cancelamento ou manutenção anual abusiva.
-            </span>
-          </div>
-          <a href={GYM_INFO.contacts.whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-bold text-flow-primary hover:underline shrink-0">
-            Falar com atendimento agora →
-          </a>
         </div>
 
       </div>
