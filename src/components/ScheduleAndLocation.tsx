@@ -67,7 +67,7 @@ export const ScheduleAndLocation: React.FC = () => {
 
           <div className="lg:col-span-7">
             <div className="rounded-panel overflow-hidden panel border border-flow-border p-2 h-full flex flex-col">
-              <div className="relative w-full h-[380px] sm:h-[480px] rounded-[8px] overflow-hidden">
+              <div className="relative w-full h-[380px] sm:h-[480px] rounded-2xl overflow-hidden">
                 <iframe
                   title="Localização da Flow Fitness Academia"
                   src="https://maps.google.com/maps?q=Rua+Guarani,+360+-+Vila+Santo+Antonio,+Ferraz+de+Vasconcelos+-+SP&t=&z=16&ie=UTF8&iwloc=&output=embed"

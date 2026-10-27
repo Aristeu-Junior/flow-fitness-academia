@@ -15,11 +15,11 @@ export default {
           cardHover: '#1A232C',
           border: '#212D38',
           borderHover: '#2E3E4D',
-          primary: '#00F575',
-          primaryHover: '#00D664',
-          primaryDark: '#054724',
-          primaryGlow: 'rgba(0, 245, 117, 0.25)',
-          secondary: '#00E5FF',
+          primary: '#2FD38A',
+          primaryHover: '#26B877',
+          primaryDark: '#123A2C',
+          primaryGlow: 'rgba(47, 211, 138, 0.22)',
+          secondary: '#2BC4D9',
           accent: '#FFB800',
           muted: '#8B9CAE',
           subtle: '#4B5B6D',
@@ -32,19 +32,21 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace']
       },
       backgroundImage: {
-        'radial-glow': 'radial-gradient(circle at 50% 0%, rgba(0, 245, 117, 0.15), transparent 70%)',
+        'radial-glow': 'radial-gradient(circle at 50% 0%, rgba(47, 211, 138, 0.13), transparent 70%)',
         'subtle-grid': 'linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
-        'scanline': 'repeating-linear-gradient(0deg, rgba(0,245,117,0.025) 0px, rgba(0,245,117,0.025) 1px, transparent 1px, transparent 3px)'
+        'scanline': 'repeating-linear-gradient(0deg, rgba(47,211,138,0.02) 0px, rgba(47,211,138,0.02) 1px, transparent 1px, transparent 3px)',
+        'gradient-primary': 'linear-gradient(135deg, #2FD38A 0%, #2BC4D9 100%)',
+        'gradient-primary-soft': 'linear-gradient(135deg, rgba(47,211,138,0.16) 0%, rgba(43,196,217,0.10) 100%)'
       },
       boxShadow: {
-        'glow-primary': '0 0 30px -5px rgba(0, 245, 117, 0.3)',
+        'glow-primary': '0 0 26px -6px rgba(47, 211, 138, 0.25)',
         'glow-subtle': '0 10px 40px -10px rgba(0, 0, 0, 0.8)',
         'card': '0 4px 24px -1px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05)',
         'panel': 'inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 30px 60px rgba(0,0,0,0.5)',
         'bezel': '0 0 0 1px #212D38, 0 10px 30px -8px rgba(0,0,0,0.6)'
       },
       borderRadius: {
-        'panel': '10px'
+        'panel': '18px'
       },
       animation: {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

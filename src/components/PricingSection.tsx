@@ -73,8 +73,8 @@ export const PricingSection: React.FC = () => {
                   href={`${GYM_INFO.contacts.whatsappUrl}?text=${encodeURIComponent(plan.whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full flex items-center justify-center gap-2 py-3 rounded-[8px] font-bold text-xs uppercase tracking-wider transition-colors duration-200 active:scale-[0.97] ${
-                    isHighlight ? 'bg-flow-primary text-flow-bg hover:bg-flow-primaryHover' : 'bg-flow-card border border-flow-border text-white hover:border-flow-primary/40'
+                  className={`w-full flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all duration-200 active:scale-[0.97] ${
+                    isHighlight ? 'btn-gradient text-flow-bg hover:brightness-110' : 'bg-flow-card border border-flow-border text-white hover:border-flow-primary/40'
                   }`}
                 >
                   <Phone className="w-3.5 h-3.5 fill-current" />
@@ -135,7 +135,7 @@ export const PricingSection: React.FC = () => {
                   href={`${GYM_INFO.contacts.whatsappUrl}?text=${encodeURIComponent(service.whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-[8px] bg-flow-card border border-flow-border text-white hover:bg-flow-primary hover:text-flow-bg font-bold text-xs uppercase tracking-wider transition-colors active:scale-[0.97]"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-flow-card border border-flow-border text-white hover:bg-flow-primary hover:text-flow-bg font-bold text-xs uppercase tracking-wider transition-colors active:scale-[0.97]"
                 >
                   <Phone className="w-3.5 h-3.5 fill-current" />
                   <span>Contratar {service.name}</span>

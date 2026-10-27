@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
             href={GYM_INFO.contacts.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-panel bg-flow-primary text-flow-bg font-bold text-xs uppercase tracking-wider hover:bg-flow-primaryHover transition-colors active:scale-95"
+            className="btn-gradient inline-flex items-center gap-2 px-4 py-2.5 rounded-panel text-flow-bg font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all active:scale-95"
           >
             <Phone className="w-3.5 h-3.5 fill-current" />
             <span>Matricule-se</span>
@@ -113,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
             href={GYM_INFO.contacts.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-panel bg-flow-primary text-flow-bg font-bold text-sm uppercase tracking-wide"
+            className="btn-gradient w-full flex items-center justify-center gap-2 py-3 rounded-panel text-flow-bg font-bold text-sm uppercase tracking-wide"
           >
             <Phone className="w-4 h-4 fill-current" />
             <span>Falar no WhatsApp</span>

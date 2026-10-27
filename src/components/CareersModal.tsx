@@ -116,7 +116,7 @@ export const CareersModal: React.FC<CareersModalProps> = ({ isOpen, onClose }) =
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-flow-primary text-flow-bg font-bold text-xs uppercase tracking-wider hover:bg-flow-primaryHover transition-all shadow-glow-primary active:scale-95"
+              className="btn-gradient w-full flex items-center justify-center gap-2 py-3 rounded-2xl text-flow-bg font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-glow-primary active:scale-95"
             >
               <Send className="w-3.5 h-3.5" />
               <span>Abrir E-mail com Currículo</span>

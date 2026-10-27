@@ -69,7 +69,7 @@ export const FaqSection: React.FC = () => {
               <p className="text-xs text-flow-muted">Nossa equipe responde rápido diretamente no WhatsApp.</p>
             </div>
           </div>
-          <a href={GYM_INFO.contacts.whatsappUrl} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-[8px] bg-flow-primary text-flow-bg font-bold text-xs uppercase tracking-wider active:scale-95 shrink-0 flex items-center gap-2">
+          <a href={GYM_INFO.contacts.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gradient px-5 py-2.5 rounded-2xl text-flow-bg font-bold text-xs uppercase tracking-wider active:scale-95 shrink-0 flex items-center gap-2 hover:brightness-110 transition-all">
             <Phone className="w-3.5 h-3.5 fill-current" />
             <span>Falar com Instrutor</span>
           </a>

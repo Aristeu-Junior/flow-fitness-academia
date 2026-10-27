@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
                 href={`${GYM_INFO.contacts.whatsappUrl}?text=${encodeURIComponent('Olá! Quero agendar minha aula experimental na Flow Fitness.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-panel bg-flow-primary text-flow-bg font-extrabold text-sm uppercase tracking-wider transition-transform duration-150 hover:bg-flow-primaryHover active:scale-[0.97] shadow-[0_0_0_3px_#080B0E,0_0_0_5px_#1d3a28]"
+                className="btn-gradient inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-panel text-flow-bg font-extrabold text-sm uppercase tracking-wider transition-all duration-200 hover:brightness-110 active:scale-[0.97] shadow-[0_0_0_3px_#080B0E,0_0_0_5px_#163528]"
               >
                 <span>Agendar Aula Experimental</span>
                 <ArrowRight className="w-4 h-4" />

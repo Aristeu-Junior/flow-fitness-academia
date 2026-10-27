@@ -69,7 +69,7 @@ export const ConductPolicyModal: React.FC<ConductPolicyModalProps> = ({ isOpen, 
         <div className="pt-4 border-t border-flow-border/80 flex justify-end">
           <button
             onClick={onClose}
-            className="px-6 py-2.5 rounded-xl bg-flow-primary text-flow-bg font-bold text-xs uppercase tracking-wider hover:bg-flow-primaryHover transition-all"
+            className="btn-gradient px-6 py-2.5 rounded-2xl text-flow-bg font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all"
           >
             Entendido e Concordo
           </button>
