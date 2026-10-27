@@ -1,0 +1,7 @@
+node_modules
+dist
+.impeccable/review
+.impeccable/hook.cache.json
+.playwright-cli
+*.local
+.DS_Store

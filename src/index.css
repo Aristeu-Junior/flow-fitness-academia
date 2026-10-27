@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: #080B0E;
+    color: #F4F7FA;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080B0E;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #212D38;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00F575;
+  }
+}
+
+@layer utilities {
+  .text-glow-primary {
+    text-shadow: 0 0 20px rgba(0, 245, 117, 0.4);
+  }
+  .bg-glass {
+    background: rgba(16, 21, 26, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .bg-glass-card {
+    background: rgba(20, 27, 34, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .border-glass {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Panel / scoreboard system — see .impeccable/surfaces/src-app-tsx.md */
+  .panel {
+    background: #0E1411;
+    border: 1px solid #1a2420;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), inset 0 24px 48px rgba(0, 0, 0, 0.55);
+    position: relative;
+  }
+  .panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: repeating-linear-gradient(0deg, rgba(0, 245, 117, 0.025) 0px, rgba(0, 245, 117, 0.025) 1px, transparent 1px, transparent 3px);
+    pointer-events: none;
+  }
+  .seg-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+  .seg-lit {
+    color: #00F575;
+    text-shadow: 0 0 1px rgba(0, 245, 117, 0.35);
+  }
+  .seg-ghost {
+    color: #1d3a28;
+  }
+}
