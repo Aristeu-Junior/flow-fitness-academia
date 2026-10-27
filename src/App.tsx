@@ -8,7 +8,6 @@ import { GymExperience } from './components/GymExperience';
 import { ScheduleAndLocation } from './components/ScheduleAndLocation';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
-import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { ConductPolicyModal } from './components/ConductPolicyModal';
 import { CareersModal } from './components/CareersModal';
 
@@ -52,9 +51,6 @@ export const App: React.FC = () => {
         onOpenConductModal={() => setConductModalOpen(true)}
         onOpenCareersModal={() => setCareersModalOpen(true)}
       />
-
-      {/* Floating WhatsApp Action */}
-      <FloatingWhatsApp />
 
       {/* Modals */}
       <ConductPolicyModal

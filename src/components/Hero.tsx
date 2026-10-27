@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { GYM_INFO } from '../data/fitnessData';
-import { useCountUp } from '../hooks/useCountUp';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -14,25 +13,19 @@ const fadeUp = {
 };
 
 export const Hero: React.FC = () => {
-  const ratingRef = useCountUp<HTMLSpanElement>({ end: 4.8, decimals: 1, duration: 1.2 });
-  const reviewsRef = useCountUp<HTMLSpanElement>({ end: 170, decimals: 0, duration: 1.4 });
-
   return (
     <section
       id="inicio"
-      className="relative pt-28 pb-14 md:pt-32 md:pb-16 overflow-hidden bg-flow-bg"
+      className="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-flow-bg"
     >
       <div className="absolute inset-0 bg-scanline opacity-40 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[380px] bg-flow-primary/[0.06] blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-
-          {/* Left: thesis + CTA */}
           <motion.div
             initial="hidden"
             animate="show"
-            className="lg:col-span-7 flex flex-col items-start"
+            className="flex flex-col items-start max-w-3xl"
           >
             <motion.h1
               custom={0}
@@ -86,43 +79,6 @@ export const Hero: React.FC = () => {
               <span>{GYM_INFO.address.street} — {GYM_INFO.address.neighborhood}, {GYM_INFO.address.city}</span>
             </motion.div>
           </motion.div>
-
-          {/* Right: live scoreboard panel */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 w-full"
-          >
-            <div className="panel border border-flow-border rounded-panel p-5 sm:p-6">
-              <div className="grid grid-cols-3 gap-3 mb-5">
-                <div className="text-center">
-                  <span ref={ratingRef} className="block seg-num seg-lit text-3xl sm:text-4xl font-extrabold animate-seg-flicker">0.0</span>
-                  <span className="block text-[10px] text-flow-muted uppercase tracking-[0.14em] mt-1">Nota Google</span>
-                </div>
-                <div className="text-center border-x border-flow-border/60">
-                  <span ref={reviewsRef} className="block seg-num seg-lit text-3xl sm:text-4xl font-extrabold animate-seg-flicker">0</span>
-                  <span className="block text-[10px] text-flow-muted uppercase tracking-[0.14em] mt-1">Avaliações</span>
-                </div>
-                <div className="text-center">
-                  <span className="block seg-num seg-lit text-3xl sm:text-4xl font-extrabold">06-22</span>
-                  <span className="block text-[10px] text-flow-muted uppercase tracking-[0.14em] mt-1">Horário Hoje</span>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between pt-1 text-[10px] uppercase tracking-[0.14em] seg-num">
-                <span className="text-flow-muted">Pico de Movimento · Terça</span>
-                <span className="text-flow-primary">18h–20h</span>
-              </div>
-
-              <div className="flex items-center justify-between mt-4 pt-4 border-t border-flow-border/60 text-[10px] text-flow-muted uppercase tracking-[0.1em] seg-num">
-                <span>{GYM_INFO.address.street.toUpperCase()}</span>
-                <span className="text-flow-primary">● LGBTQ+ FRIENDLY</span>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
       </div>
     </section>
   );

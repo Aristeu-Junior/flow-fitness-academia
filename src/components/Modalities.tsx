@@ -13,10 +13,7 @@ export const Modalities: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="max-w-2xl mb-12">
-          <span className="seg-num text-xs font-bold tracking-[0.18em] text-flow-primary uppercase">
-            Módulos 01–04 · Estrutura
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2" style={{ textWrap: 'balance' }}>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight" style={{ textWrap: 'balance' }}>
             Tudo o que seu corpo precisa para evoluir com consistência.
           </h2>
           <p className="text-flow-muted mt-3 text-sm sm:text-base leading-relaxed">
