@@ -24,17 +24,24 @@ export const PricingSection: React.FC = () => {
             Sem fidelidade oculta e com isenção de matrícula garantida a partir do plano trimestral.
           </p>
 
-          {/* Physical two-position toggle */}
-          <div className="inline-flex items-center gap-0 mt-8 p-1 rounded-panel panel border border-flow-border">
+          {/* Clean two-tab switch */}
+          <div className="inline-flex items-center gap-1 mt-8 p-1 rounded-panel bg-flow-surface border border-flow-border">
             {(['standard', 'special'] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`relative px-5 py-2.5 rounded-[7px] text-xs sm:text-sm font-bold seg-num tracking-wide transition-colors duration-200 ${
-                  activeTab === tab ? 'bg-flow-primary text-flow-bg' : 'text-flow-muted hover:text-white'
+                className={`relative px-5 py-2.5 rounded-[7px] text-sm font-semibold transition-colors duration-200 ${
+                  activeTab === tab ? 'text-flow-bg' : 'text-flow-muted hover:text-white'
                 }`}
               >
-                {tab === 'standard' ? 'MUSCULAÇÃO' : 'ESPECIAIS & AVALIAÇÃO'}
+                {activeTab === tab && (
+                  <motion.span
+                    layoutId="pricing-tab-indicator"
+                    className="absolute inset-0 rounded-[7px] bg-flow-primary -z-10"
+                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                  />
+                )}
+                {tab === 'standard' ? 'Musculação' : 'Especiais & Avaliação'}
               </button>
             ))}
           </div>

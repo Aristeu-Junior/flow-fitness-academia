@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { StatusTicker } from './components/StatusTicker';
 import { Modalities } from './components/Modalities';
 import { PricingSection } from './components/PricingSection';
 import { GymExperience } from './components/GymExperience';
@@ -26,9 +25,6 @@ export const App: React.FC = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <Hero />
-
-        {/* Dynamic Status Ticker */}
-        <StatusTicker />
 
         {/* Modalities & Highlights */}
         <Modalities />

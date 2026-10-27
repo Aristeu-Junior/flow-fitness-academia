@@ -71,7 +71,7 @@ export const ScheduleAndLocation: React.FC = () => {
                 <iframe
                   title="Localização da Flow Fitness Academia"
                   src="https://maps.google.com/maps?q=Rua+Guarani,+360+-+Vila+Santo+Antonio,+Ferraz+de+Vasconcelos+-+SP&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                  className="w-full h-full border-0 grayscale contrast-125 invert opacity-90 hover:opacity-100 hover:grayscale-0 hover:invert-0 transition-all duration-500"
+                  className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
