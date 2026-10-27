@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { GYM_INFO } from '../data/fitnessData';
+import { asset } from '../lib/assets';
 
 interface NavbarProps {
   onOpenConductModal: () => void;
@@ -33,6 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConductModal, onOpenCareer
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         <a href="#inicio" className="flex items-center gap-2.5 shrink-0">
+          <img src={asset('images/logo.png')} alt="Flow Fitness Academia" className="w-8 h-8 sm:w-9 sm:h-9" />
           <span className="seg-num font-extrabold text-sm sm:text-base tracking-[0.12em] text-white">
             FLOW <span className="text-flow-primary">//</span> FITNESS
           </span>

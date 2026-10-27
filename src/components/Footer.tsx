@@ -1,6 +1,7 @@
 import React from 'react';
 import { Instagram, Facebook, Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 import { GYM_INFO } from '../data/fitnessData';
+import { asset } from '../lib/assets';
 
 interface FooterProps {
   onOpenConductModal: () => void;
@@ -17,7 +18,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConductModal, onOpenCareer
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-flow-border/60">
 
           <div className="lg:col-span-5 space-y-4">
-            <a href="#inicio" className="inline-flex items-center">
+            <a href="#inicio" className="inline-flex items-center gap-3">
+              <img src={asset('images/logo.png')} alt="Flow Fitness Academia" className="w-10 h-10" />
               <span className="seg-num font-extrabold text-xl tracking-[0.1em] text-white">
                 FLOW <span className="text-flow-primary">//</span> FITNESS
               </span>
